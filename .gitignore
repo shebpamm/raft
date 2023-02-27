@@ -3,3 +3,9 @@
 .devenv*
 devenv.local.nix
 
+#terranix
+.terraform*
+terraform.tfstate*
+config.tf.json
+
+virtualbox.box

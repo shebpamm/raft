@@ -7,7 +7,7 @@ let
     modules = [ ./config ];
   };
 in
-rec {
+{
   defaultPackage = terraformConfiguration;
   # nix develop
   devShell = pkgs.mkShell {
@@ -36,6 +36,4 @@ rec {
         && ${terraform}/bin/terraform destroy
     '');
   };
-  # nix run
-  defaultApp = apps.${system}.apply;
 }

@@ -13,7 +13,7 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        terraform = import ./tf { inherit pkgs terranix; };
+        terraform = import ./terraform { inherit pkgs terranix; };
       in
       terraform
     );

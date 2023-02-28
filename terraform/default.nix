@@ -1,9 +1,10 @@
-{ pkgs, terranix }:
+{ pkgs, inputs }:
 let
   system = pkgs.system;
-  terraform = pkgs.terraform_0_15;
-  terraformConfiguration = terranix.lib.terranixConfiguration {
+  terraform = pkgs.terraform;
+  terraformConfiguration = inputs.terranix.lib.terranixConfiguration {
     inherit system;
+    extraArgs = { inherit inputs; };
     modules = [ ./config ];
   };
 in

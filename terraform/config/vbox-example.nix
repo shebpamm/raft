@@ -1,4 +1,9 @@
-{ lib, ... }:
+{ lib, inputs, pkgs, ... }:
+let
+  vm-config = inputs.iso-images.outputs.nixosConfigurations.${pkgs.system}.base;
+  ova-drv = vm-config.virtualbox.config.system.build.virtualBoxOVA;
+  ova-filename = vm-config.virtualbox.config.virtualbox.vmFileName;
+in
 {
   terraform.required_providers.virtualbox = {
     source = "terra-farm/virtualbox";
@@ -7,7 +12,7 @@
 
   resource.virtualbox_vm.node = {
     name = "virtualbox-node";
-    image = "https://app.vagrantup.com/shebpamm123/boxes/nixos/versions/22.05/providers/virtualbox.box";
+    image = "${ova-drv}/${ova-filename}";
     cpus = 2;
     memory = "512 mib";
 

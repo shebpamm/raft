@@ -2,20 +2,24 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
+    iso-images =
+      {
+        url = "path:./iso";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     terranix = {
       url = "github:terranix/terranix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, terranix }:
+  outputs = inputs @ { self, nixpkgs, flake-utils, terranix, iso-images }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
 
-        terraform = import ./terraform { inherit pkgs terranix; };
-        isoImage = import ./iso { inherit nixpkgs system; };
+        terraform = import ./terraform { inherit pkgs inputs; };
       in
-      terraform // isoImage
-    );
+      terraform
+    ) // iso-images.outputs;
 }

@@ -14,12 +14,13 @@
   };
 
   outputs = inputs @ { self, nixpkgs, flake-utils, terranix, vm-images }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
 
-        terraform = import ./terraform { inherit pkgs inputs; };
-      in
-      terraform
-    ) // vm-images.outputs;
+          terraform = import ./terraform { inherit pkgs inputs; };
+        in
+        terraform
+      ) // vm-images.outputs // import ./nixops { inherit inputs;};
 }

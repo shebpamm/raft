@@ -1,6 +1,6 @@
 { lib, inputs, pkgs, ... }:
 let
-  vm-config = inputs.iso-images.outputs.nixosConfigurations.${pkgs.system}.base;
+  vm-config = inputs.vm-images.outputs.nixosConfigurations.${pkgs.system}.base;
   ova-drv = vm-config.virtualbox.config.system.build.virtualBoxOVA;
   ova-filename = vm-config.virtualbox.config.virtualbox.vmFileName;
 in

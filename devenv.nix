@@ -6,4 +6,7 @@
     [
       terraform
     ];
+  env = {
+    VAULT_ADDR = "https://vault.sorsa.cloud";
+  };
 }

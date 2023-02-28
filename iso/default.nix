@@ -1,8 +1,22 @@
-{ nixpkgs, system }: {
-    nixosConfigurations.base = nixpkgs.lib.nixosSystem {
+{ nixpkgs, system }:
+let
+  createVM = type: {
+    "${type}" = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+        (nixpkgs + "/nixos/modules/virtualisation/${type}-image.nix")
+        ./base.nix
       ];
     };
   };
+  bases = builtins.foldl'
+    (acc: type:
+      createVM type
+      // acc)
+    { } [ "virtualbox" "vmware" ];
+in
+{
+  nixosConfigurations = {
+    base = bases;
+  };
+}

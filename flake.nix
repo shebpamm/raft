@@ -14,7 +14,8 @@
         pkgs = import nixpkgs { inherit system; };
 
         terraform = import ./terraform { inherit pkgs terranix; };
+        isoImage = import ./iso { inherit nixpkgs system; };
       in
-      terraform
+      terraform // isoImage
     );
 }

@@ -1,10 +1,16 @@
-{ pkgs, inputs }:
+{ inputs }:
+
+inputs.flake-utils.lib.eachDefaultSystem (system:
 let
-  system = pkgs.system;
+  pkgs = import inputs.nixpkgs { inherit system; };
+  vm-images = import ../vm-images { inherit inputs; };
   terraform = pkgs.terraform;
   terraformConfiguration = inputs.terranix.lib.terranixConfiguration {
     inherit system;
-    extraArgs = { inherit inputs; };
+    extraArgs = {
+      inherit inputs;
+      inherit vm-images;
+    };
     modules = [ ./config ];
   };
 in
@@ -29,4 +35,4 @@ in
         && ${terraform}/bin/terraform destroy
     '');
   };
-}
+})

@@ -1,8 +1,6 @@
-{ lib, inputs, pkgs, ... }:
+{ lib, inputs, pkgs, vm-images, ... }:
 let
-  vm-config = inputs.vm-images.outputs.nixosConfigurations.${pkgs.system}.base;
-  ova-drv = vm-config.virtualbox.config.system.build.virtualBoxOVA;
-  ova-filename = vm-config.virtualbox.config.virtualbox.vmFileName;
+  vm-config = vm-images.nixosConfigurations.base.esxi.${pkgs.system};
 in
 rec {
   terraform.required_providers.vsphere = {
@@ -50,7 +48,7 @@ rec {
       network_id = "Virtual Machines";
     };
     disk = {
-      label = "disk0";
+      label = "nix-disk-root";
       size = 20;
     };
 

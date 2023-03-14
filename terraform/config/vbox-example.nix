@@ -1,8 +1,8 @@
-{ lib, inputs, pkgs, ... }:
+{ lib, inputs, pkgs, vm-images, ... }:
 let
-  vm-config = inputs.vm-images.outputs.nixosConfigurations.${pkgs.system}.base;
-  ova-drv = vm-config.virtualbox.config.system.build.virtualBoxOVA;
-  ova-filename = vm-config.virtualbox.config.virtualbox.vmFileName;
+  vm-config = vm-images.nixosConfigurations.base.virtualbox.${pkgs.system};
+  ova-drv = vm-config.config.system.build.virtualBoxOVA;
+  ova-filename = vm-config.config.virtualbox.vmFileName;
 in
 {
   terraform.required_providers.virtualbox = {

@@ -1,48 +1,13 @@
 {
   "nodes": {
-    "ansible-dev-env": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1677069239,
-        "narHash": "sha256-0Lq5xkrQx9nHQmieasBpnDRjz86bno7iyqRzWqyL8rs=",
-        "owner": "shebpamm",
-        "repo": "ansible-dev-env",
-        "rev": "56a580aac5cd2de068fab6369d4b33affc84d4ae",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shebpamm",
-        "repo": "ansible-dev-env",
-        "type": "github"
-      }
-    },
-    "ansible-mitogen": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs-stable": "nixpkgs-stable"
-      },
-      "locked": {
-        "lastModified": 1676536856,
-        "narHash": "sha256-TEAdNLw9TMti74THQaUfRd8+u1vam6EzqPED9h4pM6U=",
-        "owner": "shebpamm",
-        "repo": "ansible-mitogen",
-        "rev": "b49d847dd6bba12c5dc47894a1823f7237713bfa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shebpamm",
-        "repo": "ansible-mitogen",
-        "type": "github"
-      }
-    },
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1677065458,
-        "narHash": "sha256-AhDrTFSNQf3DFoOtQfKo59wWYFKiOxKdYtsoXXnz53I=",
+        "lastModified": 1678720350,
+        "narHash": "sha256-2WUISGDqlshoLgLh2BCqWn0jAcHOnROYtEpgemmxXaQ=",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "0280ba36b55315a592bb7b2b1c72376010e0aa6b",
+        "rev": "b97ca4bd581f0e2fb620f301cc417791f655f851",
         "type": "github"
       },
       "original": {
@@ -83,21 +48,6 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "locked": {
-        "lastModified": 1667395993,
-        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -121,11 +71,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1677050843,
-        "narHash": "sha256-3fcFxn58eCtrXrVPeW/nAg6NR5wUERVEf8zOtjPDzuM=",
+        "lastModified": 1678724065,
+        "narHash": "sha256-MjeRjunqfGTBGU401nxIjs7PC9PZZ1FBCZp/bRB3C2M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9e0eed654c705c7cafe192a8eba1610217f70544",
+        "rev": "b8afc8489dc96f29f69bec50fdc51e27883f89c1",
         "type": "github"
       },
       "original": {
@@ -136,22 +86,6 @@
       }
     },
     "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1652881001,
-        "narHash": "sha256-k9JmPCojaJnqGz4aRXXT1HZqJKHCXijoMfBAb24abXk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2d474d6a4a43a0348b78db68dc00c491032cf5cf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-21.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-stable_2": {
       "locked": {
         "lastModified": 1673800717,
         "narHash": "sha256-SFHraUqLSu5cC6IxTprex/nTsI81ZQAtDvlBvGDWfnA=",
@@ -170,19 +104,19 @@
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils",
         "gitignore": "gitignore",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixpkgs-stable": "nixpkgs-stable_2"
+        "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1676879534,
-        "narHash": "sha256-HU4RXcwsAX1u7AUbGOBDxkYQkeODcn+HZjXqKa1y/hk=",
+        "lastModified": 1678376203,
+        "narHash": "sha256-3tyYGyC8h7fBwncLZy5nCUjTJPrHbmNwp47LlNLOHSM=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "c9495f017f67a11e9c9909b032dc7762dfc853cf",
+        "rev": "1a20b9708962096ec2481eeb2ddca29ed747770a",
         "type": "github"
       },
       "original": {
@@ -193,8 +127,6 @@
     },
     "root": {
       "inputs": {
-        "ansible-dev-env": "ansible-dev-env",
-        "ansible-mitogen": "ansible-mitogen",
         "devenv": "devenv",
         "nixpkgs": "nixpkgs",
         "pre-commit-hooks": "pre-commit-hooks"

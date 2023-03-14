@@ -148,7 +148,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ijEFxLmRb9zStGLWG7HQ5890UoIce78zIxjgeYpHvZ8=",
+        "narHash": "sha256-V8X9zhVmkx3WGIIPA/yehrw6hjPF+fIUNl0INtHMda0=",
         "path": "./vm-images",
         "type": "path"
       },

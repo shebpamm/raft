@@ -1,3 +1,6 @@
 {
-  imports = [ ./vbox-example.nix ];
+  imports = [
+    ./vbox-example.nix
+    ./esxi-example.nix
+  ];
 }

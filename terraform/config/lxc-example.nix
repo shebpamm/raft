@@ -2,6 +2,7 @@
 let
   vm-config = vm-images.nixosConfigurations.base.lxc-container.${pkgs.system};
   lxc-tarball = "${vm-config.config.system.build.tarball}/tarball/${vm-config.config.system.build.tarball.fileName}.tar.xz";
+  lxc-metadata = "${vm-config.config.system.build.metadata}/tarball/${vm-config.config.system.build.metadata.fileName}.tar.xz";
 in
 {
   terraform.required_providers.lxd = {
@@ -16,7 +17,7 @@ in
       lxc-tarball = lxc-tarball;
     };
     provisioner.local-exec.command = ''
-      lxc image import ${lxc-tarball} --alias nixos
+      lxc image rm nixos && lxc image import ${lxc-metadata} ${lxc-tarball} --alias nixos || true
     '';
   };
 

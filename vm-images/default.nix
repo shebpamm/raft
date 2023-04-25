@@ -6,7 +6,7 @@ let
         "${type}" = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            (inputs.nixpkgs + "/nixos/modules/virtualisation/${type}-image.nix")
+            (inputs.nixpkgs + "/nixos/modules/virtualisation/${type}.nix")
             ./base.nix
           ];
         };
@@ -16,7 +16,7 @@ let
       (acc: type:
         createVM type
         // acc)
-      { } [ "virtualbox" "vmware" ]);
+      { } [ "virtualbox-image" "vmware-image" "lxc-container" ]);
 in
 {
   nixosConfigurations."base" = bases;

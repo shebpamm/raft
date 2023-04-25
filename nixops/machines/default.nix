@@ -1,0 +1,3 @@
+{
+  nixnas = import ./nas.nix;
+}

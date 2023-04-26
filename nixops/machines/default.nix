@@ -1,3 +1,2 @@
 {
-  nixnas = import ./nas.nix;
 }

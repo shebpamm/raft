@@ -35,5 +35,5 @@ in
     depends_on = [ "module.shell-lxd-image" ];
   };
 
-  output.servers.value = "\${lxd_container.nodes}";
+  output.servers.value = "\${[ for server in resource.lxd_container.nodes : { name = server.name, ipv4 = server.ipv4_address, domain = \"sorsa.cloud\" } ]}";
 }

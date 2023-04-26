@@ -7,131 +7,31 @@
         [
           "object",
           {
-            "boot_order": [
-              "list",
-              "string"
-            ],
-            "checksum": "string",
-            "checksum_type": "string",
-            "cpus": "number",
-            "id": "string",
-            "image": "string",
-            "memory": "string",
-            "name": "string",
-            "network_adapter": [
-              "list",
-              [
-                "object",
-                {
-                  "device": "string",
-                  "host_interface": "string",
-                  "ipv4_address": "string",
-                  "ipv4_address_available": "string",
-                  "mac_address": "string",
-                  "status": "string",
-                  "type": "string"
-                }
-              ]
-            ],
-            "optical_disks": [
-              "list",
-              "string"
-            ],
-            "status": "string",
-            "url": "string",
-            "user_data": "string"
+            "domain": "string",
+            "ipv4": "string",
+            "name": "string"
           }
         ],
         [
           "object",
           {
-            "boot_order": [
-              "list",
-              "string"
-            ],
-            "checksum": "string",
-            "checksum_type": "string",
-            "cpus": "number",
-            "id": "string",
-            "image": "string",
-            "memory": "string",
-            "name": "string",
-            "network_adapter": [
-              "list",
-              [
-                "object",
-                {
-                  "device": "string",
-                  "host_interface": "string",
-                  "ipv4_address": "string",
-                  "ipv4_address_available": "string",
-                  "mac_address": "string",
-                  "status": "string",
-                  "type": "string"
-                }
-              ]
-            ],
-            "optical_disks": [
-              "list",
-              "string"
-            ],
-            "status": "string",
-            "url": "string",
-            "user_data": "string"
+            "domain": "string",
+            "ipv4": "string",
+            "name": "string"
           }
         ]
       ]
     ],
     "value": [
       {
-        "boot_order": null,
-        "checksum": null,
-        "checksum_type": null,
-        "cpus": 2,
-        "id": "893005c1-9704-4ef8-add5-71c35a0ea6dc",
-        "image": "/nix/store/mrkqlggvv2b8bb12wr1npgf0sq8i4l7r-nixos-ova-23.05.20230228.0d34707-x86_64-linux/nixos-23.05.20230228.0d34707-x86_64-linux.ova",
-        "memory": "512 mib",
-        "name": "nixnode-0.sorsa.cloud",
-        "network_adapter": [
-          {
-            "device": "IntelPro1000MTServer",
-            "host_interface": "vboxnet0",
-            "ipv4_address": "192.168.56.110",
-            "ipv4_address_available": "yes",
-            "mac_address": "080027101954",
-            "status": "up",
-            "type": "hostonly"
-          }
-        ],
-        "optical_disks": null,
-        "status": "running",
-        "url": null,
-        "user_data": null
+        "domain": "sorsa.cloud",
+        "ipv4": "169.254.62.21",
+        "name": "nixnode-0"
       },
       {
-        "boot_order": null,
-        "checksum": null,
-        "checksum_type": null,
-        "cpus": 2,
-        "id": "9cdca015-31ce-489b-a445-9978622be474",
-        "image": "/nix/store/mrkqlggvv2b8bb12wr1npgf0sq8i4l7r-nixos-ova-23.05.20230228.0d34707-x86_64-linux/nixos-23.05.20230228.0d34707-x86_64-linux.ova",
-        "memory": "512 mib",
-        "name": "nixnode-1.sorsa.cloud",
-        "network_adapter": [
-          {
-            "device": "IntelPro1000MTServer",
-            "host_interface": "vboxnet0",
-            "ipv4_address": "192.168.56.111",
-            "ipv4_address_available": "yes",
-            "mac_address": "080027A4A1E9",
-            "status": "up",
-            "type": "hostonly"
-          }
-        ],
-        "optical_disks": null,
-        "status": "running",
-        "url": null,
-        "user_data": null
+        "domain": "sorsa.cloud",
+        "ipv4": "169.254.11.139",
+        "name": "nixnode-1"
       }
     ]
   }

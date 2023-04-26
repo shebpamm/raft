@@ -25,12 +25,12 @@
     "value": [
       {
         "domain": "sorsa.cloud",
-        "ipv4": "169.254.62.21",
+        "ipv4": "192.168.58.7",
         "name": "nixnode-0"
       },
       {
         "domain": "sorsa.cloud",
-        "ipv4": "169.254.11.139",
+        "ipv4": "192.168.58.252",
         "name": "nixnode-1"
       }
     ]

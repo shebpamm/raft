@@ -22,7 +22,8 @@ in
       if [[ -e config.tf.json ]]; then rm -f config.tf.json; fi
       cp ${terraformConfiguration} config.tf.json \
         && ${terraform}/bin/terraform init \
-        && ${terraform}/bin/terraform apply
+        && ${terraform}/bin/terraform apply \
+        && ${terraform}/bin/terraform output -json > nixops/terraform.json
     '');
   };
   # nix run ".#destroy"

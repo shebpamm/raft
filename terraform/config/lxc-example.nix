@@ -12,21 +12,27 @@ in
 
   provider.lxd = { };
 
-  resource.null_resource.lxd_image = {
-    triggers = {
-      lxc-tarball = lxc-tarball;
+  module.shell-lxd-image = {
+    source = "Invicton-Labs/shell-resource/external";
+    version = "0.4.1";
+
+    command_unix = "lxc image import $LXC_METADATA $LXC_TARBALL --alias nixos | cut -c 35-";
+    command_destroy_unix = "lxc image rm nixos";
+
+    fail_create_on_stderr = true;
+
+    environment = {
+      LXC_METADATA = lxc-metadata;
+      LXC_TARBALL = lxc-tarball;
     };
-    provisioner.local-exec.command = ''
-      lxc image rm nixos && lxc image import ${lxc-metadata} ${lxc-tarball} --alias nixos || true
-    '';
   };
 
   resource.lxd_container.nodes = {
     count = 2;
-    name = "nixnode-\${count.index}.sorsa.cloud";
+    name = "nixnode-\${count.index}";
     image = "nixos";
 
-    depends_on = [ "null_resource.lxd_image" ];
+    depends_on = [ "module.shell-lxd-image" ];
   };
 
   output.servers.value = "\${lxd_container.nodes}";

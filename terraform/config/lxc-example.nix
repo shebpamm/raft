@@ -27,13 +27,52 @@ in
     };
   };
 
+  resource.lxd_network.raft_network = {
+    name = "raft_network";
+
+    config = {
+      "ipv4.address" = "192.168.58.1/24";
+      "ipv4.nat" = true;
+    };
+  };
+
+  resource.lxd_profile.raft_profile = {
+    name = "raft_profile";
+
+    device = [
+    {
+      name = "eth0";
+      type = "nic";
+
+      properties = {
+        nictype = "bridged";
+        parent = "\${lxd_network.raft_network.name}";
+      };
+    }
+    
+    {
+      type = "disk";
+      name = "root";
+
+      properties = {
+        path = "/";
+        pool = "default";
+      };
+    }
+    ];
+  };
+
   resource.lxd_container.nodes = {
     count = 2;
     name = "nixnode-\${count.index}";
     image = "nixos";
 
+    profiles = [
+      "\${lxd_profile.raft_profile.name}"
+    ];
+
     depends_on = [ "module.shell-lxd-image" ];
   };
 
-  output.servers.value = "\${[ for server in resource.lxd_container.nodes : { name = server.name, ipv4 = server.ipv4_address, domain = \"sorsa.cloud\" } ]}";
+  output.servers.value = "\${[ for server in resource.lxd_container.nodes : { name = server.name, ipv4 = server.ipv4_address, domain = \"sorsa.cloud\", type = \"lxc\" } ]}";
 }

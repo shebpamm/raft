@@ -11,6 +11,11 @@
       '';
     };
 
+  networking = {
+    useDHCP = true;
+    dhcpcd.wait = "if-carrier-up";
+  };
+
   users = {
     mutableUsers = false;
     users = {

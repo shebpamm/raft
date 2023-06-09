@@ -1,5 +1,5 @@
 {
   imports = [
-    ./lxc-example.nix
+    ./esxi-example.nix
   ];
 }

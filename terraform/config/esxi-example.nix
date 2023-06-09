@@ -1,11 +1,11 @@
 { lib, inputs, pkgs, vm-images, ... }:
 let
-  vm-config = vm-images.nixosConfigurations.base.esxi.${pkgs.system};
+  ova-drv = vm-images.nixosImages.esxi;
 in
 rec {
   terraform.required_providers.vsphere = {
-    source = "hashicorp/vsphere";
-    version = "2.3.1";
+    source = "local/hashicorp/vsphere";
+    version = "2.13.0";
   };
 
   data.vault_kv_secret_v2.vsphere_secrets = {
@@ -34,7 +34,12 @@ rec {
   data.vsphere_resource_pool.pool = {
     name = "Virtual Machines";
     datacenter_id = "\${data.vsphere_datacenter.datacenter.id}";
-  }; 
+  };
+
+  data.vsphere_network.network = {
+    name = "Virtual Machines";
+    datacenter_id = "\${data.vsphere_datacenter.datacenter.id}";
+  };
 
   resource.vsphere_virtual_machine.esxi-nodes = {
     count = 1;
@@ -44,13 +49,19 @@ rec {
     guest_id = "otherGuest64";
     datastore_id = "\${data.vsphere_datastore.datastore.id}";
     resource_pool_id = "\${data.vsphere_resource_pool.pool.id}";
+    datacenter_id = "\${data.vsphere_datacenter.datacenter.id}";
+    host_system_id = "ha-host";
     network_interface = {
-      network_id = "Virtual Machines";
+      network_id = "\${data.vsphere_network.network.id}";
     };
     disk = {
       label = "nix-disk-root";
       size = 20;
     };
-
+    ovf_deploy = {
+      allow_unverified_ssl_cert = true;
+      local_ovf_path = "${ova-drv}/nixos.ova";
+      disk_provisioning = "thin";
+    };
   };
 }

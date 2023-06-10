@@ -23,7 +23,7 @@ in
       cp ${terraformConfiguration} config.tf.json \
         && ${terraform}/bin/terraform init \
         && ${terraform}/bin/terraform apply \
-        && ${terraform}/bin/terraform output -json > nixops/terraform.json
+        && ${terraform}/bin/terraform output -json > colmena/terraform.json
     '');
   };
   # nix run ".#destroy"

@@ -15,5 +15,5 @@
     let
       mergeModules = modules: builtins.foldl' (p: n: p // n) { } (map (m: import m { inherit inputs; }) modules);
         in
-        mergeModules [ ./terraform ./nixops ./vm-images ];
+        mergeModules [ ./terraform ./colmena ./vm-images ];
       }

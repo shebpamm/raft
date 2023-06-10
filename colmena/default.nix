@@ -3,8 +3,13 @@ let
   machines = import ./machines.nix { inherit inputs; };
 in
 {
-  nixopsConfigurations.default = {
-    nixpkgs = inputs.nixpkgs;
+  colmena.default = {
+    meta = {
+      nixpkgs = import inputs.nixpkgs {
+        system = "x86_64-linux";
+        allowUnfree = true;
+      };
+    };
     network.description = "Sorsa Network";
     network.enableRollback = true;
     network.storage.legacy = { };

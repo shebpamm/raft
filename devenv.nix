@@ -5,7 +5,7 @@
   packages = with pkgs;
     [
       terraform
-      nixops_unstable
+      colmena
     ];
   env = {
     VAULT_ADDR = "https://vault.sorsa.cloud";

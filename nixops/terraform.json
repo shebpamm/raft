@@ -1,1 +1,27 @@
-{}
+{
+  "servers": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        [
+          "object",
+          {
+            "domain": "string",
+            "ipv4": "string",
+            "name": "string",
+            "type": "string"
+          }
+        ]
+      ]
+    ],
+    "value": [
+      {
+        "domain": "sorsa.cloud",
+        "ipv4": "192.168.7.112",
+        "name": "esxi-node-0",
+        "type": "esxi"
+      }
+    ]
+  }
+}

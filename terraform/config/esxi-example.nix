@@ -63,5 +63,10 @@ rec {
       local_ovf_path = "${ova-drv}/nixos.ova";
       disk_provisioning = "thin";
     };
+    lifecycle = {
+      ignore_changes = [ "disk[0].io_share_count" ];
+    };
   };
+
+  output.servers.value = "\${[ for server in resource.vsphere_virtual_machine.esxi-nodes : { name = server.name, ipv4 = server.default_ip_address, domain = \"sorsa.cloud\", type = \"esxi\" } ]}";
 }

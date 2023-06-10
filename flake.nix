@@ -13,7 +13,8 @@
   };
   outputs = inputs @ { self, nixpkgs, flake-utils, nixos-generators, terranix }:
     let
-      mergeModules = modules: builtins.foldl' (p: n: p // n) { } (map (m: import m { inherit inputs; }) modules);
-        in
-        mergeModules [ ./terraform ./colmena ./vm-images ];
-      }
+      servers = import ./servers.nix;
+      mergeModules = modules: builtins.foldl' (p: n: p // n) { } (map (m: import m { inherit inputs servers; }) modules);
+    in
+    mergeModules [ ./terraform ./colmena ./vm-images ];
+}

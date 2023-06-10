@@ -1,4 +1,4 @@
-{ inputs }:
+{ inputs, servers }:
 
 inputs.flake-utils.lib.eachDefaultSystem (system:
 let

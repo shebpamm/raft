@@ -4,7 +4,9 @@
     type = "esxi";
     network.ipv4address = "192.168.7.30/24";
     traits = [
+      "esxi"
       "fish"
+      "static"
     ];
     specs = {
       cpus = 1;

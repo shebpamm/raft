@@ -5,13 +5,15 @@ let
   pkgs = import inputs.nixpkgs { inherit system; };
   vm-images = import ../vm-images { inherit inputs; };
   terraform = pkgs.terraform;
+
   terraformConfiguration = inputs.terranix.lib.terranixConfiguration {
     inherit system;
     extraArgs = {
-      inherit inputs;
-      inherit vm-images;
+      inherit inputs vm-images servers;
     };
-    modules = [ ./config ];
+    modules = [
+      ./backends/esxi.nix
+    ];
   };
 in
 {

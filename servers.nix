@@ -1,10 +1,11 @@
 {
   testing = {
     count = 1;
+    type = "esxi";
+    network.ipv4address = "192.168.7.30/24";
     traits = [
       "fish"
     ];
-    type = "esxi";
     specs = {
       cpus = 1;
       memory = 1024;

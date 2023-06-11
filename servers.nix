@@ -1,7 +1,9 @@
 {
   testing = {
     count = 1;
-    traits = [];
+    traits = [
+      "fish"
+    ];
     type = "esxi";
     specs = {
       cpus = 1;

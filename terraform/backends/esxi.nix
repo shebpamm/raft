@@ -6,7 +6,7 @@ let
   nodes = builtins.mapAttrs
     (n: s: {
       count = s.count;
-      name = "${s.name}-\${count.index}";
+      name = "${n}-\${count.index}";
       num_cpus = s.specs.cpus;
       memory = s.specs.memory;
       guest_id = "otherGuest64";

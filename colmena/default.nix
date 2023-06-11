@@ -1,6 +1,6 @@
 { inputs, servers }:
 let
-  machines = import ./machines.nix { inherit inputs; };
+  machines = import ./machines.nix { inherit inputs servers; };
 in
 {
   colmena = {

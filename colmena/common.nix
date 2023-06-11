@@ -6,7 +6,7 @@
   boot.initrd.checkJournalingFS = false;
   services.openssh = {
     enable = true;
-    settings.permitRootLogin = "prohibit-password";
+    settings.PermitRootLogin = "prohibit-password";
     extraConfig = ''
       PubkeyAcceptedKeyTypes +ssh-rsa
     '';

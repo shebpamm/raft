@@ -7,7 +7,7 @@ in
     meta = {
       name = "Raft";
       description = "Sorsa Network";
-      nixpkgs = import inputs.nixpkgs {
+      nixpkgs = import inputs.system-nixpkgs {
         system = "x86_64-linux";
         allowUnfree = true;
       };

@@ -1,7 +1,7 @@
 {
   inputs = {
-    system-nixpkgs.url = "github:nixos/nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs";
+    system-nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";

@@ -18,7 +18,7 @@
     "value": [
       {
         "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.113",
+        "ipv4": "192.168.7.114",
         "name": "testing-0",
         "type": "esxi"
       }

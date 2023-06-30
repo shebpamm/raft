@@ -21,6 +21,6 @@ in
       };
       nodeSpecialArgs = serverSpecs;
     };
-    defaults = import ./common.nix { inherit inputs; };
+    defaults = import ./common.nix { inherit inputs servers; };
   } // machines;
 }

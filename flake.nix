@@ -3,6 +3,7 @@
     system-nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    disko.url = "github:nix-community/disko";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,10 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs @ { self, system-nixpkgs, nixpkgs, flake-utils, nixos-generators, terranix }:
+  outputs = inputs @ { self, system-nixpkgs, nixpkgs, flake-utils, nixos-generators, terranix, disko }:
     let
       servers = import ./servers.nix;
       mergeModules = modules: builtins.foldl' (p: n: p // n) { } (map (m: import m { inherit inputs servers; }) modules);
     in
-    mergeModules [ ./terraform ./colmena ./vm-images ];
+    mergeModules [ ./terraform ./colmena ./vm-images ./disko ];
 }

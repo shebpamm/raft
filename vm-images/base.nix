@@ -1,5 +1,7 @@
 { config, pkgs, system, ... }:
 {
+
+
   system.stateVersion = "22.05";
   boot.initrd.checkJournalingFS = false;
   services.openssh =

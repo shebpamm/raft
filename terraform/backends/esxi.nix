@@ -18,7 +18,7 @@ let
         network_id = "\${data.vsphere_network.network.id}";
       };
       disk = {
-        label = "nix-disk-root";
+        label = "data";
         size = s.specs.disk;
       };
       ovf_deploy = {

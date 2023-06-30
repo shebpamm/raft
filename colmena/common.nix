@@ -12,6 +12,17 @@
     '';
   };
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+    autoResize = true;
+  };
+  boot = {
+    growPartition = true;
+    loader.grub.device = "/dev/sdb"; # TODO: Find a better solution, seems like it's always sdb for now
+    loader.timeout = 0;
+  };
+
   environment.systemPackages = with pkgs;
     [
       htop

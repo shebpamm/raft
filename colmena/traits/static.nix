@@ -4,7 +4,7 @@ let
   ipAddress = net.lib.net.cidr.host ((lib.strings.toInt index) + 1) spec.network.ipv4pool;
 in
 {
-  networking.useDHCP = true;
+  networking.useDHCP = false;
   systemd.network.enable = true;
   systemd.network.networks = {
     "10-lan" = rec {

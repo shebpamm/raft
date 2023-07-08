@@ -15,8 +15,9 @@
   };
   outputs = inputs @ { self, system-nixpkgs, nixpkgs, flake-utils, nixos-generators, terranix, disko }:
     let
+      pkgs = (import nixpkgs { system = "x86_64-linux"; });
       servers = import ./servers.nix;
-      mergeModules = modules: builtins.foldl' (p: n: p // n) { } (map (m: import m { inherit inputs servers; }) modules);
+      mergeModules = modules: builtins.foldl' (p: n: pkgs.lib.attrsets.recursiveUpdate p n) { } (map (m: import m { inherit inputs servers; }) modules);
     in
     mergeModules [ ./terraform ./colmena ./vm-images ./disko ];
 }

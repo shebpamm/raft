@@ -1,5 +1,5 @@
 {
-  kube-master = {
+  coalesce = {
     count = 1;
     type = "esxi";
     network = {
@@ -9,6 +9,7 @@
       "esxi"
       "fish"
       "static"
+      "consul"
     ];
     specs = {
       cpus = 1;

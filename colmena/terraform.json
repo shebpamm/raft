@@ -30,37 +30,13 @@
             "name": "string",
             "type": "string"
           }
-        ],
-        [
-          "object",
-          {
-            "domain": "string",
-            "ipv4": "string",
-            "name": "string",
-            "type": "string"
-          }
-        ],
-        [
-          "object",
-          {
-            "domain": "string",
-            "ipv4": "string",
-            "name": "string",
-            "type": "string"
-          }
         ]
       ]
     ],
     "value": [
       {
         "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.49",
-        "name": "coalesce-0",
-        "type": "esxi"
-      },
-      {
-        "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.49",
+        "ipv4": "192.168.7.118",
         "name": "kubernetes-0",
         "type": "esxi"
       },
@@ -74,12 +50,6 @@
         "domain": "sorsa.cloud",
         "ipv4": "192.168.7.116",
         "name": "kubernetes-2",
-        "type": "esxi"
-      },
-      {
-        "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.30",
-        "name": "testing-0",
         "type": "esxi"
       }
     ]

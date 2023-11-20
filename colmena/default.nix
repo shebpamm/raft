@@ -28,6 +28,7 @@ in
         system = "x86_64-linux";
         allowUnfree = true;
       };
+      specialArgs = { inherit machines; };
       nodeSpecialArgs = nodeSpecs;
     };
     defaults = import ./common.nix { inherit inputs servers; };

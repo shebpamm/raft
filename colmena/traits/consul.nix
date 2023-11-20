@@ -6,7 +6,7 @@
     dropPrivileges = true;
     webUi = true;
 
-    extraConfig = {
+    extraConfig =  {
       bind_addr = "0.0.0.0";
       advertise_addr = nodes.${name}.config.deployment.targetHost;
       server = true;

@@ -2,7 +2,10 @@
 
 inputs.flake-utils.lib.eachDefaultSystem (system:
 let
-  pkgs = import inputs.nixpkgs { inherit system; };
+  pkgs = import inputs.nixpkgs {
+    system = "x86_64-linux";
+    config = { allowUnfree = true; };
+  };
   vm-images = import ../vm-images { inherit inputs; };
   terraform = pkgs.terraform;
 

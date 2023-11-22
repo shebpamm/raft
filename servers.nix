@@ -12,7 +12,7 @@
       "kubernetes"
     ];
     specs = {
-      cpus = 4;
+      cpus = 8;
       memory = 4096;
       disk = 10; # Gigabytes, this is the data disk. The OS disk is 32GB.
     };

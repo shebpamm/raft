@@ -39,7 +39,8 @@ let
         (v: "resource.vsphere_virtual_machine." + v)
         (builtins.attrNames nodes))
   ) + ")";
-  output = "\${[ for server in ${nodeConcat} : { name = server.name, ipv4 = server.default_ip_address, domain = \"sorsa.cloud\", type = \"esxi\" } ]}";
+  ipRegex = "2001:.*";
+  output = "\${[ for server in ${nodeConcat} : { name = server.name, ip = [ for ip in server.guest_ip_addresses : ip if length(regexall(\"${ipRegex}\", ip)) > 0 ][0], domain = \"sorsa.cloud\", type = \"esxi\" } ]}";
 in
 {
   terraform.required_providers.vsphere = {

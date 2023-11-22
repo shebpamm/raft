@@ -4,7 +4,7 @@ let
   ipAddress = net.lib.net.cidr.host ((lib.strings.toInt index) + 1) spec.network.ipv4pool;
 in
 {
-  networking.useDHCP = false;
+  networking.useDHCP = true;
   systemd.network.enable = true;
   systemd.network.networks = {
     "10-lan" = rec {
@@ -14,6 +14,14 @@ in
       ];
       gateway = [ "192.168.7.1" ];
       dns = gateway;
+      routes = [
+        {
+          routeConfig = {
+            Gateway = "192.168.7.1";
+            GatewayOnLink = true;
+          };
+        }
+      ];
     };
   };
 }

@@ -10,7 +10,7 @@ let
         hostName = serv.name;
         domain = serv.domain;
       };
-      deployment.targetHost = serv.ipv4;
+      deployment.targetHost = serv.ip;
     };
   };
 

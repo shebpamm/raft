@@ -1,4 +1,9 @@
 {
+  "root_ca": {
+    "sensitive": false,
+    "type": "string",
+    "value": "-----BEGIN CERTIFICATE-----\n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\nG37yOSlJtzWU\n-----END CERTIFICATE-----"
+  },
   "servers": {
     "sensitive": false,
     "type": [
@@ -8,7 +13,7 @@
           "object",
           {
             "domain": "string",
-            "ipv4": "string",
+            "ip": "string",
             "name": "string",
             "type": "string"
           }
@@ -17,7 +22,7 @@
           "object",
           {
             "domain": "string",
-            "ipv4": "string",
+            "ip": "string",
             "name": "string",
             "type": "string"
           }
@@ -26,7 +31,7 @@
           "object",
           {
             "domain": "string",
-            "ipv4": "string",
+            "ip": "string",
             "name": "string",
             "type": "string"
           }
@@ -36,19 +41,19 @@
     "value": [
       {
         "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.118",
+        "ip": "2001:14ba:4c41:4b07:20c:29ff:fee1:415d",
         "name": "kubernetes-0",
         "type": "esxi"
       },
       {
         "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.117",
+        "ip": "2001:14ba:4c41:4b07:20c:29ff:fe87:84da",
         "name": "kubernetes-1",
         "type": "esxi"
       },
       {
         "domain": "sorsa.cloud",
-        "ipv4": "192.168.7.116",
+        "ip": "2001:14ba:4c41:4b07:20c:29ff:fe62:81dd",
         "name": "kubernetes-2",
         "type": "esxi"
       }

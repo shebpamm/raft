@@ -21,6 +21,7 @@ let
   };
 in
 {
+  inherit terraformConfiguration;
   # nix run ".#apply"
   apps.apply = {
     type = "app";

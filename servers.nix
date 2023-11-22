@@ -9,7 +9,7 @@
       "esxi"
       "fish"
       "static"
-      "kubernetes"
+      "etcd"
     ];
     specs = {
       cpus = 8;

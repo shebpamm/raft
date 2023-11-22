@@ -16,7 +16,7 @@ let
     };
     modules = [
       ./backends/esxi.nix
-      ./vault.nix
+      ./vault
     ];
   };
 in

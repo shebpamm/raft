@@ -1,7 +1,5 @@
-{ lib, inputs, pkgs, servers, ... }:
-let
-
-in rec {
+{ ... }:
+rec {
   terraform.required_providers = {
     vault =
       {
